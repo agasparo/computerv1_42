@@ -71,7 +71,7 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 
 			terme_int := ToInt(terme)
 			if terme_int > 2 || terme_int < 0 {
-				SetErrors(input, "The must be an int between 0 and 2", i)
+				SetErrors(input, "The power must be an int between 0 and 2", i)
 				return (0)
 			}
 

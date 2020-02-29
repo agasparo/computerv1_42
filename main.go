@@ -14,7 +14,7 @@ func main() {
     // check le double =
     // check qu'il ya toujouts x^0, 1 ou 2
 
-    c := "42 * X^0 = 42 * X^0"
+    c := "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
 
     fmt.Println("[1/4] Init Check struct ...")
     Check_struct := Init(c)

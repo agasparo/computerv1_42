@@ -33,7 +33,7 @@ func Delta(Eq Equation) {
 	fmt.Printf("b = %f\n", Eq.Puis1)
 	fmt.Printf("c = %f\n", Eq.Puis0)
 	fmt.Printf("Δ = %f² - 4 * %f * %f\n", Eq.Puis1, Eq.Puis2, Eq.Puis0)
-	b := math.Pow(Eq.Puis1, 2)
+	b := ft_carre(Eq.Puis1)
 	other := 4 * Eq.Puis2 * Eq.Puis0
 	delta := b - other
 	fmt.Printf("Δ = %f - %f\n", b, other)
@@ -132,4 +132,9 @@ func Inverse(nb float64) (res float64) {
 func isFloatInt(floatValue float64) bool {
 
     return math.Mod(floatValue, 1.0) == 0
+}
+
+func ft_carre(x float64) (res float64) {
+
+	return (x * x)
 }

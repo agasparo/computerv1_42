@@ -99,7 +99,7 @@ func DeltaSup(Eq Equation, delta float64) {
 		Rationalx1 := fmt.Sprintf("x1 = (%f + √%f) / %f", deb, delta, fin)
 		fmt.Println(Rationalx1)
 		fmt.Printf("	x2 = %f ou ", fin_x2)
-		Rationalx2 := fmt.Sprintf("x1 = (%f - √%f) / %f", deb, delta, fin)
+		Rationalx2 := fmt.Sprintf("x2 = (%f - √%f) / %f", deb, delta, fin)
 		fmt.Println(Rationalx2)
 	}
 	color.Unset()

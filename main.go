@@ -14,7 +14,7 @@ func main() {
     // check le double =
     // check qu'il ya toujouts x^0, 1 ou 2
 
-    c := "-2 * X^0 + 4 * X^1 - 2 * X^2 = 0"
+    c := "42 * X^0 = 42 * X^0"
 
     fmt.Println("[1/4] Init Check struct ...")
     Check_struct := Init(c)
@@ -51,16 +51,17 @@ func main() {
         Eq1.Puis2 + agasparo.Inverse(Eq2.Puis2),
     }
 
-    Output.PrintNewEquation(EqF.Puis2, EqF.Puis1, EqF.Puis0)
     if EqF.Puis2 != 0 {
+        Output.PrintNewEquation(EqF.Puis2, EqF.Puis1, EqF.Puis0)
         fmt.Println("Equation degree : 2")
         agasparo.Delta(EqF)
     } else if EqF.Puis1 != 0 {
+        Output.PrintNewEquation(EqF.Puis2, EqF.Puis1, EqF.Puis0)
         fmt.Println("Equation degree : 1")
         agasparo.Deg1(EqF)
     } else {
         fmt.Println("Equation degree : 0")
-        fmt.Println("tous les nombres réels sont solution")
+        color.Green("All real numbers are solution")
     }
 }
 

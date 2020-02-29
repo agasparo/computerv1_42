@@ -10,7 +10,6 @@ bonus :
 
 a finir :
 
- - les 2 truc du main
+ - les 2 truc du main avec usage
  - (peut etre refaire la function Rationnel)
- - verifier lorganisation du polinome
- - usage
+ - recup les args

@@ -80,14 +80,14 @@ func DeltaSup(Eq Equation, delta float64) {
 	deb := (Eq.Puis1 * -1)
 	fin := (Eq.Puis2 * 2)
 	fmt.Printf("x1 = (%f + √%f) / %f and x2 = (%f - √%f) / %f\n", deb, delta, fin, deb, delta, fin)
-	deb_x1 := deb + math.Sqrt(delta)
-	deb_x2 := deb - math.Sqrt(delta)
+	deb_x1 := deb + Sqrt(delta)
+	deb_x2 := deb - Sqrt(delta)
 	fmt.Printf("x1 = %f / %f and x2 = %f / %f\n", deb_x1, fin, deb_x2, fin)
 	fin_x1 := deb_x1 / fin
 	fin_x2 := deb_x2 / fin
 	fmt.Printf("x1 = %f and x2 = %f\n", fin_x1, fin_x2)
 	color.Set(color.FgGreen)
-	if isFloatInt(math.Sqrt(delta)) {
+	if isFloatInt(Sqrt(delta)) {
 		fmt.Printf("Resultat : \n 	x1 = %f ou x1 = ", fin_x1)
 		Rationalx1 := new(big.Rat).SetFloat64(fin_x1)
 		fmt.Println(Rationalx1)
@@ -137,4 +137,14 @@ func isFloatInt(floatValue float64) bool {
 func ft_carre(x float64) (res float64) {
 
 	return (x * x)
+}
+
+func Sqrt(x float64) float64 {
+    
+    var z float64 = 1
+
+    for i := 1; i <= 10; i++ {
+    	z = (z-(math.Pow(z,2)-x)/(2*z))
+    }
+    return z
 }

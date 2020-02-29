@@ -10,7 +10,6 @@ bonus :
 
 a finir :
 
- - refaire function sqrt
  - les 2 truc du main
  - (peut etre refaire la function Rationnel)
  - verifier lorganisation du polinome

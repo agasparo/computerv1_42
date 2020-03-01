@@ -31,7 +31,7 @@ func Array_search_count(array []string, to_search string) (res int) {
 
 	for i:= 0; i < len(array); i++ {
 
-		if array[i] == to_search {
+		if array[i] == to_search || array[i][0] == to_search[0] {
 			count++;
 		}
 	}

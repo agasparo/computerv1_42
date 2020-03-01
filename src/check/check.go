@@ -25,7 +25,11 @@ func SetErrors(input *CheckParam, error string, error_value int) {
 
 	input.Error = error
 	input.Error_value = error_value + 2
-	input.Error_desc = input.Tab_str[error_value]
+	if error_value > 0 {
+		input.Error_desc = input.Tab_str[error_value]
+	} else {
+		input.Error_desc = input.Tab_str[0]
+	}
 }
 
 func IsNumeric(s string) (bool) {
@@ -48,7 +52,7 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 		
 		if input.Tab_str[i][0] == 'X' {
 			
-			if input.Tab_str[i - 1] != "*" {
+			if i - 1 < 0 || input.Tab_str[i - 1] != "*" {
 				SetErrors(input, "You must have * between number and power", i - 1)
 				return (0)
 			}
@@ -58,7 +62,7 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 				return (0)
 			}
 
-			if !IsNumeric(input.Tab_str[i - 2]) {
+			if i - 2 < 0 || !IsNumeric(input.Tab_str[i - 2]) {
 				SetErrors(input, "You must have a number before the power", i - 2)
 				return (0)
 			}

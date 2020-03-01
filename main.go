@@ -12,9 +12,6 @@ import (
 
 func main() {
 
-    // check le double =
-    // check qu'il ya toujouts x^0, 1 ou 2
-    // 
     args := os.Args[1:]
     if len(args) != 1 {
         Output.Usage()

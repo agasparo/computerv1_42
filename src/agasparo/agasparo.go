@@ -25,6 +25,19 @@ func Array_search(array []string, to_search string) (res int) {
 	return (-1)
 }
 
+func Array_search_count(array []string, to_search string) (res int) {
+
+	count := 0
+
+	for i:= 0; i < len(array); i++ {
+
+		if array[i] == to_search {
+			count++;
+		}
+	}
+	return (count)
+}
+
 func Delta(Eq Equation) {
 
 	fmt.Println("Etape 1 :")

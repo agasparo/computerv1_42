@@ -12,4 +12,3 @@ bonus :
 a finir :
 
  - (peut etre refaire la function Rationnel)
- - check le double =

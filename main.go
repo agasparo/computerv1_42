@@ -30,6 +30,12 @@ func main() {
         return
     }
 
+    res := agasparo.Array_search_count(Check_struct.Tab_str, "=")
+    if res > 1 {
+        color.Red("Notice: %s %d", "you must have just on = on your equation not", res)
+        return
+    }
+
     fmt.Println("[2/4] Init Struct eq 1 ...")
     Eq1 := check.CheckPuis{}
     if check.SetPuis(&Check_struct, &Eq1, 0) == 0 {

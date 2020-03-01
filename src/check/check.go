@@ -50,7 +50,7 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 
 	for i := deb; i < len(input.Tab_str) && input.Tab_str[i] != "="; i++ {
 		
-		if input.Tab_str[i][0] != 'X' && len(input.Tab_str[i]) > 2 &&input.Tab_str[i][1] == '^' {
+		if input.Tab_str[i][0] != 'X' && len(input.Tab_str[i]) > 1 &&input.Tab_str[i][1] == '^' {
 
 			SetErrors(input, "You must have an X befor ^", i)
 			return

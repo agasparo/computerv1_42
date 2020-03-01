@@ -71,7 +71,11 @@ func main() {
         agasparo.Deg1(EqF)
     } else {
         fmt.Println("Equation degree : 0")
-        color.Green("All real numbers are solution")
+        if Eq1.Puis0 == Eq2.Puis0 {
+            color.Green("All real numbers are solution")
+        } else {
+            color.Red("No solution")
+        }
     }
 }
 

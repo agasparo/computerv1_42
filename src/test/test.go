@@ -20,8 +20,30 @@ type Testes struct {
 
 func main() {
 
-	AllTests := make([]Testes, 1, 100)
+	AllTests := make(map[int]Testes)
+
 	AddTest(AllTests, "syntax error 1 (double egale)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 == 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 2 (twice = on equation)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * X^1 = 2 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 3 (L for X)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * L^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 4 (s for ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * Xs0 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 5 (no space)", "/Users/arthur/Desktop/computorv1/main.go", "2*X^1.02=1*X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 6 (power not int)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1.02 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 7 (power alpha)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^a = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 8 (terme alpha)", "/Users/arthur/Desktop/computorv1/main.go", "a * X^1 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 9 (+ for *)", "/Users/arthur/Desktop/computorv1/main.go", "2 + X^1 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 10 (no ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X1 = 1 * X1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 11 (power > 2)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^3 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 12 (power < 0)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1 = 1 * X^-1", "Notice", "regex")
+
+	AddTest(AllTests, "good eq 1 : delta = 0", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^2 - 3 * X^1 + 9/8 * X^0 = 0", "Δ == 0, One solution", "regex")
+	AddTest(AllTests, "good eq 2 : delta > 0", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0", "Δ > 0, 2 solutions", "regex")
+	AddTest(AllTests, "good eq 3 : delta < 0", "/Users/arthur/Desktop/computorv1/main.go", "1 * X^2 = -3 * X^1 - 10 * X^0", "Δ < 0, No solutions for this equation", "regex")
+
+	AddTest(AllTests, "good eq deg1 : 1", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 4 * X^1 = 4 * X^0", "-0.25", "regex")
+
+	AddTest(AllTests, "eq special : 1", "/Users/arthur/Desktop/computorv1/main.go", "42 * X^0 = 42 * X^0", "All real numbers are solution", "regex")
+	AddTest(AllTests, "eq special : 2", "/Users/arthur/Desktop/computorv1/main.go", "42 * X^0 = 4 * X^0", "No solution", "regex")
+	
 	Header()
 	Run(AllTests)
 }
@@ -39,7 +61,7 @@ func Header() {
 	color.Magenta("\n\nMain test by : Agasparo\n\n")
 }
 
-func AddTest(table []Testes, name string, filename string, Commande string, Outpout string, Type string) {
+func AddTest(table map[int]Testes, name string, filename string, Commande string, Outpout string, Type string) {
 
 	NewTest := Testes{
 		name,
@@ -48,10 +70,10 @@ func AddTest(table []Testes, name string, filename string, Commande string, Outp
 		Outpout,
 		Type,
 	}
-	table[len(table) - 1] = NewTest
+	table[len(table)] = NewTest
 }
 
-func Run(table []Testes) {
+func Run(table map[int]Testes) {
 
 	for i := 0; i < len(table); i++ {
 
@@ -63,7 +85,7 @@ func Run(table []Testes) {
 		if err != nil {
 		    log.Fatal(err)
 		}
-		fmt.Printf("test [%s] : ", table[i].Name)
+		fmt.Printf("test %d [%s] : ", i, table[i].Name)
 		if CheckRes(outb.String(), table[i].Outpout, table[i].Type_search) {
 			color.Set(color.FgGreen)
 			fmt.Println(" [ OK ]")
@@ -72,6 +94,10 @@ func Run(table []Testes) {
 			color.Set(color.FgRed)
 			fmt.Println(" [ KO ]")
 			color.Unset()
+			fmt.Println("Return : ")
+			fmt.Println(outb.String())
+			fmt.Printf("(type : %s [search type]), must return : \n%s\n", table[i].Type_search, table[i].Outpout)
+			return
 		}
 	}
 }

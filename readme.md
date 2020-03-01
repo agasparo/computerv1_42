@@ -8,8 +8,8 @@ bonus :
  - organisation du polynome 2 puis 1 puis 0
  - algo dit ou il y a une erreur de syntaxe
  - usage et explications
+ - main de teste
 
 a finir :
 
  - (peut etre refaire la function Rationnel)
- - faire un main de test

@@ -1,7 +1,6 @@
 package check
 
 import (
-	//"fmt"
 	"strconv"
 	"strings"
 )
@@ -69,8 +68,22 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 			}
 
 			if i - 2 < 0 || !IsNumeric(input.Tab_str[i - 2]) {
-				SetErrors(input, "You must have a number before the power", i - 2)
-				return (0)
+				in := 0
+				if !IsNumeric(input.Tab_str[i - 2]) {
+					if strings.Index(input.Tab_str[i - 2], "/") != -1 {
+						new_str := strings.ReplaceAll(input.Tab_str[i - 2], "/", "")
+						if !IsNumeric(new_str) {
+							SetErrors(input, "You must have a number before the power", i - 2)
+							return (0)
+						} else {
+							in = 1
+						}
+					}
+				}
+				if in != 1 {
+					SetErrors(input, "You must have a number before the power", i - 2)
+					return (0)
+				}
 			}
 
 			terme := strings.ReplaceAll(input.Tab_str[i], "X^", "")
@@ -97,7 +110,16 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 
 func InitPow(s string, sign string, eqs *CheckPuis, pow int) {
 
-	f, _ := strconv.ParseFloat(s, 64)
+	var f float64
+
+	if strings.Index(s, "/") != -1 {
+		ex := strings.Split(s, "/")
+		t1, _ := strconv.ParseFloat(ex[0], 64)
+		t2, _ := strconv.ParseFloat(ex[1], 64)
+		f = t1 / t2
+	} else {
+		f, _ = strconv.ParseFloat(s, 64)
+	}
 	if sign == "-" {
 		f *= -1 
 	}

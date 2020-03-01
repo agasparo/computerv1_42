@@ -33,7 +33,7 @@ func Delta(Eq Equation) {
 	fmt.Printf("b = %f\n", Eq.Puis1)
 	fmt.Printf("c = %f\n", Eq.Puis0)
 	fmt.Printf("Δ = %f² - 4 * %f * %f\n", Eq.Puis1, Eq.Puis2, Eq.Puis0)
-	b := ft_carre(Eq.Puis1)
+	b := Pow(Eq.Puis1, 2)
 	other := 4 * Eq.Puis2 * Eq.Puis0
 	delta := b - other
 	fmt.Printf("Δ = %f - %f\n", b, other)
@@ -134,9 +134,15 @@ func isFloatInt(floatValue float64) bool {
     return math.Mod(floatValue, 1.0) == 0
 }
 
-func ft_carre(x float64) (res float64) {
+func Pow(x float64, n int) (res float64) {
 
-	return (x * x)
+    number := 1.00;
+
+    for i := 0; i < n; i++ {
+        number *= x;
+    }
+
+    return (number);
 }
 
 func Sqrt(x float64) float64 {
@@ -145,7 +151,7 @@ func Sqrt(x float64) float64 {
 
     for i := 1; i <= 10; i++ {
 
-    	z = (z-(math.Pow(z,2)-x)/(2*z))
+    	z = (z - (Pow(z, 2) - x) / ( 2 * z))
     }
     return (z)
 }

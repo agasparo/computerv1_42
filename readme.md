@@ -12,4 +12,3 @@ a finir :
 
  - les 2 truc du main avec usage
  - (peut etre refaire la function Rationnel)
- - recup les args

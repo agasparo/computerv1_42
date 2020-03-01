@@ -8,10 +8,10 @@ import (
 
 type CheckParam struct {
 	
-	Tab_str []string
-	Error string
+	Tab_str 	[]string
+	Error 		string
 	Error_value int
-	Error_desc string
+	Error_desc 	string
 }
 
 type CheckPuis struct {

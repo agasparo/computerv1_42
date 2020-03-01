@@ -11,5 +11,4 @@ bonus :
 
 a finir :
 
- - (peut etre refaire la function Rationnel)
  - faire un main de test

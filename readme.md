@@ -10,8 +10,8 @@ bonus :
  - usage et explications
  - main de teste
  - stdin data
+ - sous forme naturelle
 
 a finir :
 
  - refaire la function Rationnel
- - sous forme naturelle

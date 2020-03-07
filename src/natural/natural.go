@@ -14,7 +14,7 @@ func Convert(str string) (string) {
 	for i := 0; i < len(tab); i++ {
 
 		in = 0
-		new_str += tab[i]
+		new_str += intorx(tab[i])
 		new_str += " *"
 
 		if len(tab[i + 2]) < 3 {
@@ -32,7 +32,7 @@ func Convert(str string) (string) {
 
 		if i + 3 < len(tab) {
 			new_str += " "
-			new_str += "/"//tab[i + 3]
+			new_str += "|"//tab[i + 3]
 			new_str += " "
 		}
 
@@ -45,6 +45,14 @@ func Convert(str string) (string) {
 	}
 	return (new_str)
 }
+
+func intorx(str string) (string) {
+
+	if str == "X" {
+		return ("1")
+	}
+	return (str)
+} 
 
 func powerof(str string) (string) {
 

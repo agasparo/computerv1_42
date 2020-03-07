@@ -22,11 +22,15 @@ func PrintNewEquation(p2 float64, p1 float64, p0 float64) {
 	fmt.Print("New equation : ")
 	if (p2 != 0) {
 		fmt.Printf("%f * X^2", p2)
-		fmt.Print(" + ")
+		if p1 != 0 || p0 != 0 {
+			fmt.Print(" + ")
+		}
 	}
 	if (p1 != 0) {
 		fmt.Printf("%f * X^1", p1)
-		fmt.Print(" + ")
+		if p0 != 0 {
+			fmt.Print(" + ")
+		}
 	}
 	if (p0 != 0) {
 		fmt.Printf("%f * X^0", p0)

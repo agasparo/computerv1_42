@@ -31,7 +31,7 @@ func main() {
 	AddTest(AllTests, "syntax error 7 (power alpha)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^a = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 8 (terme alpha)", "/Users/arthur/Desktop/computorv1/main.go", "a * X^1 = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 9 (+ for *)", "/Users/arthur/Desktop/computorv1/main.go", "2 + X^1 = 1 * X^1", "Notice", "regex")
-	AddTest(AllTests, "syntax error 10 (no ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X1 = 1 * X1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 10 (no ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X1 = 1 * X1", "-0", "regex")
 	AddTest(AllTests, "syntax error 11 (power > 2)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^3 = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 12 (power < 0)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1 = 1 * X^-1", "Notice", "regex")
 

@@ -28,6 +28,7 @@ func main() {
     }
 
     fmt.Println(in)
+    fmt.Println(c)
     fmt.Println("[1/4] Init Check struct ...")
     Check_struct := Init(c)
     fmt.Println("done")

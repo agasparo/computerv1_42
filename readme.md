@@ -9,9 +9,9 @@ bonus :
  - algo dit ou il y a une erreur de syntaxe
  - usage et explications
  - main de teste
+ - stdin data
 
 a finir :
 
  - refaire la function Rationnel
- - input
  - sous forme naturelle

@@ -8,14 +8,23 @@ import (
 	"Output"
     "agasparo"
     "input"
+    "natural"
 )
 
 func main() {
+
+    var c string
 
     in := input.Data{}
     if input.GetInput(&in) == 0 {
         Output.Usage()
         return
+    }
+
+    if in.Natural == 0 {
+        c = in.Input
+    } else {
+        c = natural.GetString(in.Input)
     }
 
     fmt.Println(in)

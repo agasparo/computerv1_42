@@ -54,18 +54,22 @@ func is_natural(args []string) (int) {
 
 		if i % 4 == 0 {
 
-			if i + 1 < len(tab) && tab[i + 1] != "*" {
-				return (0)
+			if len(tab) < i + 1 || len(tab) < i + 2 {
+				return (1)
 			}
 
-			if i + 2 < len(tab) && len(tab[i + 2]) < 2 {
-				return (0)
+			if tab[i + 1] != "*" {
+				return (1)
 			}
 
-			if i + 1 < len(tab) && (tab[i + 2][0] != 'X' || tab[i + 2][1] != '^') {
-				return (0)
+			if len(tab[i + 2]) < 2 {
+				return (1)
+			}
+
+			if tab[i + 2][0] != 'X' || tab[i + 2][1] != '^' {
+				return (1)
 			}
 		}
 	}
-	return (1)
+	return (0)
 }

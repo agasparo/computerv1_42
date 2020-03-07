@@ -146,7 +146,6 @@ func Deg1(Eq Equation) {
 	fmt.Printf("X = %f\n", res)
 	Rational := maths_42.Rational{res, 0, 0, "", 3, ""}
 	maths_42.Trasnform(&Rational)
-	fmt.Println(Rational)
 	color.Set(color.FgGreen)
 		fmt.Printf("Resulat :\n 	 X = %f ", res)
 		if len(Rational.Frac) > 0 {

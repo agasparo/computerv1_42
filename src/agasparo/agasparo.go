@@ -4,7 +4,6 @@ import (
 	"github.com/fatih/color"
 	"fmt"
 	"math/big"
-	"math"
 )
 
 type Equation struct {
@@ -144,7 +143,7 @@ func Inverse(nb float64) (res float64) {
 
 func isFloatInt(floatValue float64) bool {
 
-    return math.Mod(floatValue, 1.0) == 0
+    return floatValue == float64(int(floatValue))
 }
 
 func Pow(x float64, n int) (res float64) {

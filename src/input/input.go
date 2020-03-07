@@ -2,8 +2,6 @@ package input
 
 import (
 	"os"
-	"flag"
-	"agasparo"
 	"fmt"
 	"bufio"
 	"strings"
@@ -21,41 +19,51 @@ func GetInput(input *Data) (int) {
 	args := os.Args[1:]
 	length := len(args)
 
-	if length > 2 {
+	if length > 1 {
+
         return (0)
     }
    
-   	if length == 2 {
-   		if args[0][0] != '-' {
-   			return (0)
-   		}
+   	if length == 1 {
+
     	input.Natural = is_natural(args)
-    	input.Input = args[1]
+    	input.Input = args[0]
     	return (1)
     }
 
-    if args[0][0] != '-' {
-   		return (0)
-   	}
-
-    ReadSTDIN(input)
+    ReadSTDIN(input, args)
     return (1)
 }
 
-func ReadSTDIN(input *Data) {
+func ReadSTDIN(input *Data, args []string) {
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter an Equation : ")
 	text, _ := reader.ReadString('\n')
 	input.Input = strings.ReplaceAll(text, "\n", "")
+	input.Natural = is_natural(args)
 }
 
 func is_natural(args []string) (int) {
 
-	wordPtr := flag.Int("natural", 0, "an int")
-	if agasparo.Array_search(args, "-natural=1") != -1 || agasparo.Array_search(args, "-natural=0") != -1  {
-		flag.Parse()
-		return (*wordPtr)
+	tab := strings.Split(args[0], " ")
+
+	for i := 0; i < len(tab); i++ {
+
+		if i % 4 == 0 {
+
+			if tab[i + 1] != "*" {
+				return (0)
+			}
+
+			if len(tab[i + 2]) < 2 {
+				return (0)
+			}
+
+			if tab[i + 2][0] != 'X' || tab[i + 2][1] != '^' {
+				return (0)
+			}
+		}
 	}
-	return (*wordPtr)
+	return (1)
 }

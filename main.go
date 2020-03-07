@@ -24,13 +24,11 @@ func main() {
     if in.Natural == 0 {
         c = in.Input
     } else {
-        c = natural.GetString(in.Input)
+        c = natural.Convert(in.Input)
     }
 
     fmt.Println(in)
-
     return
-    c := ""
 
     fmt.Println("[1/4] Init Check struct ...")
     Check_struct := Init(c)

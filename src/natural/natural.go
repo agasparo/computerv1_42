@@ -4,7 +4,7 @@ import (
 	
 )
 
-func GetString(str string) (string) {
+func Convert(str string) (string) {
 
 	return ("ok")
 }

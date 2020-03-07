@@ -18,7 +18,7 @@ func Convert(str string) (string) {
 		new_str += intorx(tab[i], &x)
 		new_str += " *"
 
-		if len(tab[i + 2]) < 3 {
+		if i + 2 < len(tab) && len(tab[i + 2]) < 3 {
 			new_str += " X^"
 			new_str += powerof(tab[i + 2], x)
 			if tab[i + 1] == "*" {
@@ -26,12 +26,15 @@ func Convert(str string) (string) {
 			} else {
 				in = 1
 			}
-		} else {
+		} else if i + 2 < len(tab) {
 			new_str += " "
 			new_str += tab[i + 2]
+			if x == 1 {
+				in = 1
+			}
 		}
 
-		if i + 3 < len(tab) {
+		if i + in < len(tab) {
 			new_str += " "
 			new_str += tab[i + in]
 			new_str += " "
@@ -49,7 +52,7 @@ func Convert(str string) (string) {
 
 func intorx(str string, x *int) (string) {
 
-	if str == "X" {
+	if str == "X" || str[0] == 'X' {
 		*x = 1
 		return ("1")
 	}

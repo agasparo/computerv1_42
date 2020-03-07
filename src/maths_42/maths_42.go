@@ -19,6 +19,10 @@ func Trasnform(Ra *Rational) {
 	var mul = 0
 	var new_nb int64
 
+	if isuseless(Ra.Nb) {
+		return
+	}
+
 	if Ra.Nb > 0 {
 		Ra.Sign = "+"
 	} else {
@@ -84,4 +88,9 @@ func Pow(x float64, n int) (res float64) {
     }
 
     return (number);
+}
+
+func isuseless(floatValue float64) bool {
+
+    return floatValue == float64(int(floatValue))
 }

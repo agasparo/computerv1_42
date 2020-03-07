@@ -11,7 +11,3 @@ bonus :
  - main de teste
  - stdin data
  - sous forme naturelle
-
-a finir :
-
- - refaire la function Rationnel

@@ -81,8 +81,12 @@ func DeltaNil(Eq Equation, delta float64) {
 	Rational := maths_42.Rational{res, 0, 0, "", 3, ""}
 	maths_42.Trasnform(&Rational)
 	color.Set(color.FgGreen)
-		fmt.Printf("Resulat :\n 	 x0 = %f ou x0 = ", res)
-		fmt.Println(Rational.Frac)
+		fmt.Printf("Resulat :\n 	 x0 = %f ", res)
+		if len(Rational.Frac) > 0 {
+			fmt.Printf("ou x0 = %s", Rational.Frac)
+		} else {
+			fmt.Println("")
+		}
 	color.Unset()
 }
 
@@ -101,14 +105,22 @@ func DeltaSup(Eq Equation, delta float64) {
 	fmt.Printf("x1 = %f and x2 = %f\n", fin_x1, fin_x2)
 	color.Set(color.FgGreen)
 	if isFloatInt(Sqrt(delta)) {
-		fmt.Printf("Resultat : \n 	x1 = %f ou x1 = ", fin_x1)
+		fmt.Printf("Resultat : \n 	x1 = %f ", fin_x1)
 		Rationalx1 := maths_42.Rational{fin_x1, 0, 0, "", 3, ""}
 		maths_42.Trasnform(&Rationalx1)
-		fmt.Println(Rationalx1.Frac)
+		if len(Rationalx1.Frac) > 0 {
+			fmt.Printf("ou x1 = %s", Rationalx1.Frac)
+		} else {
+			fmt.Println("")
+		}
 		fmt.Printf("	x2 = %f ou x2 = ", fin_x2)
 		Rationalx2 := maths_42.Rational{fin_x2, 0, 0, "", 3, ""}
 		maths_42.Trasnform(&Rationalx2)
-		fmt.Println(Rationalx2.Frac)
+		if len(Rationalx2.Frac) > 0 {
+			fmt.Printf("ou x2 = %s", Rationalx2.Frac)
+		} else {
+			fmt.Println("")
+		}
 	} else {
 		fmt.Printf("Resultat : \n 	x1 = %f ou ", fin_x1)
 		Rationalx1 := fmt.Sprintf("x1 = (%f + √%f) / %f", deb, delta, fin)
@@ -136,8 +148,12 @@ func Deg1(Eq Equation) {
 	maths_42.Trasnform(&Rational)
 	fmt.Println(Rational)
 	color.Set(color.FgGreen)
-		fmt.Printf("Resulat :\n 	 X = %f ou X = ", res)
-		fmt.Println(Rational.Frac)
+		fmt.Printf("Resulat :\n 	 X = %f ", res)
+		if len(Rational.Frac) > 0 {
+			fmt.Printf("ou X = %s", Rational.Frac)
+		} else {
+			fmt.Println("")
+		}
 	color.Unset()
 }
 

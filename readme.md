@@ -11,3 +11,7 @@ bonus :
  - main de teste
  - stdin data
  - sous forme naturelle
+
+a faire :
+
+ - signe quand equation naturel

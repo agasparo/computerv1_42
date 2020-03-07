@@ -16,7 +16,8 @@ type Rational struct {
 
 func Trasnform(Ra *Rational) {
 	
-	var mul, hau = 0, 0
+	var mul = 0
+	var new_nb int64
 
 	if Ra.Nb > 0 {
 		Ra.Sign = "+"
@@ -27,15 +28,12 @@ func Trasnform(Ra *Rational) {
 
 	if int(Ra.Nb) > 0 {
 		mul = getMult(Ra.Nb - float64(int(Ra.Nb)))
-		hau = 1
 	} else {
 		mul = getMult(Ra.Nb)
-		hau = 0
 	}
 
 	deno := int64(Pow(10, mul + Ra.Preci))
-	new_nb := int64((Ra.Nb * float64(deno)))
-	fmt.Println(hau)
+	new_nb = int64((Ra.Nb * float64(deno)))
 	Processus(new_nb, deno, Ra)
 }
 

@@ -3,7 +3,7 @@ package agasparo
 import (
 	"github.com/fatih/color"
 	"fmt"
-	"math/big"
+	"maths_42"
 )
 
 type Equation struct {
@@ -45,7 +45,7 @@ func Delta(Eq Equation) {
 	fmt.Printf("b = %f\n", Eq.Puis1)
 	fmt.Printf("c = %f\n", Eq.Puis0)
 	fmt.Printf("Δ = %f² - 4 * %f * %f\n", Eq.Puis1, Eq.Puis2, Eq.Puis0)
-	b := Pow(Eq.Puis1, 2)
+	b := maths_42.Pow(Eq.Puis1, 2)
 	other := 4 * Eq.Puis2 * Eq.Puis0
 	delta := b - other
 	fmt.Printf("Δ = %f - %f\n", b, other)
@@ -78,10 +78,11 @@ func DeltaNil(Eq Equation, delta float64) {
 	fmt.Printf("x0 = %f / %f\n", b, other)
 	res := b / other
 	fmt.Printf("x0 = %f\n", res)
-	Rational := new(big.Rat).SetFloat64(res)
+	Rational := maths_42.Rational{res, 0, 0, "", 3, ""}
+	maths_42.Trasnform(&Rational)
 	color.Set(color.FgGreen)
 		fmt.Printf("Resulat :\n 	 x0 = %f ou x0 = ", res)
-		fmt.Println(Rational)
+		fmt.Println(Rational.Frac)
 	color.Unset()
 }
 
@@ -101,11 +102,13 @@ func DeltaSup(Eq Equation, delta float64) {
 	color.Set(color.FgGreen)
 	if isFloatInt(Sqrt(delta)) {
 		fmt.Printf("Resultat : \n 	x1 = %f ou x1 = ", fin_x1)
-		Rationalx1 := new(big.Rat).SetFloat64(fin_x1)
-		fmt.Println(Rationalx1)
+		Rationalx1 := maths_42.Rational{fin_x1, 0, 0, "", 3, ""}
+		maths_42.Trasnform(&Rationalx1)
+		fmt.Println(Rationalx1.Frac)
 		fmt.Printf("	x2 = %f ou x2 = ", fin_x2)
-		Rationalx2 := new(big.Rat).SetFloat64(fin_x2)
-		fmt.Println(Rationalx2)
+		Rationalx2 := maths_42.Rational{fin_x2, 0, 0, "", 3, ""}
+		maths_42.Trasnform(&Rationalx2)
+		fmt.Println(Rationalx2.Frac)
 	} else {
 		fmt.Printf("Resultat : \n 	x1 = %f ou ", fin_x1)
 		Rationalx1 := fmt.Sprintf("x1 = (%f + √%f) / %f", deb, delta, fin)
@@ -129,10 +132,11 @@ func Deg1(Eq Equation) {
 	res := termD / termG
 	fmt.Println("Etape 3 :")
 	fmt.Printf("X = %f\n", res)
-	Rational := new(big.Rat).SetFloat64(res)
+	Rational := maths_42.Rational{res, 0, 0, "", 3, ""}
+	maths_42.Trasnform(&Rational)
 	color.Set(color.FgGreen)
 		fmt.Printf("Resulat :\n 	 X = %f ou X = ", res)
-		fmt.Println(Rational)
+		fmt.Println(Rational.Frac)
 	color.Unset()
 }
 
@@ -146,24 +150,13 @@ func isFloatInt(floatValue float64) bool {
     return floatValue == float64(int(floatValue))
 }
 
-func Pow(x float64, n int) (res float64) {
-
-    number := 1.00;
-
-    for i := 0; i < n; i++ {
-        number *= x;
-    }
-
-    return (number);
-}
-
 func Sqrt(x float64) float64 {
     
     var z float64 = 1
 
     for i := 1; i <= 10; i++ {
 
-    	z = (z - (Pow(z, 2) - x) / ( 2 * z))
+    	z = (z - (maths_42.Pow(z, 2) - x) / ( 2 * z))
     }
     return (z)
 }

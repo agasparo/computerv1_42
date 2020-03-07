@@ -36,10 +36,16 @@ func main() {
 	AddTest(AllTests, "syntax error 12 (power < 0)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1 = 1 * X^-1", "Notice", "regex")
 
 	AddTest(AllTests, "good eq 1 : delta = 0", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^2 - 3 * X^1 + 9/8 * X^0 = 0", "Δ == 0, One solution", "regex")
+	AddTest(AllTests, "good eq 1 : delta = 0", "/Users/arthur/Desktop/computorv1/main.go", "6 * X^0 + 11 * X^1 + 5 * X^2 = 1 * X^0 + 1 * X^1", "Δ == 0, One solution", "regex")
+
 	AddTest(AllTests, "good eq 2 : delta > 0", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0", "Δ > 0, 2 solutions", "regex")
+	AddTest(AllTests, "good eq 2 : delta > 0", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 13 * X^1 + 3 * X^2 = 1 * X^0 + 1 * X^1", "Δ > 0, 2 solutions", "regex")
+
 	AddTest(AllTests, "good eq 3 : delta < 0", "/Users/arthur/Desktop/computorv1/main.go", "1 * X^2 = -3 * X^1 - 10 * X^0", "Δ < 0, No solutions for this equation", "regex")
+	AddTest(AllTests, "good eq 3 : delta < 0", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 3 * X^1 + 3 * X^2 = 1 * X^0 + 0 * X^1", "Δ < 0, No solutions for this equation", "regex")
 
 	AddTest(AllTests, "good eq deg1 : 1", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 + 4 * X^1 = 4 * X^0", "-0.25", "regex")
+	AddTest(AllTests, "good eq deg1 : 2", "/Users/arthur/Desktop/computorv1/main.go", "5 * X^0 = 4 * X^0 + 7 * X^1", "0.1428", "regex")
 
 	AddTest(AllTests, "eq special : 1", "/Users/arthur/Desktop/computorv1/main.go", "42 * X^0 = 42 * X^0", "All real numbers are solution", "regex")
 	AddTest(AllTests, "eq special : 2", "/Users/arthur/Desktop/computorv1/main.go", "42 * X^0 = 4 * X^0", "No solution", "regex")

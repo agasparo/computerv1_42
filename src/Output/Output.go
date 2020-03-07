@@ -36,7 +36,7 @@ func PrintNewEquation(p2 float64, p1 float64, p0 float64) {
 }
 
 func Usage() {
-	fmt.Println("Computerv1 : Usage : [equation]")
+	fmt.Println("Computerv1 : Usage : [-natural=(1/0)] [equation]")
 	fmt.Println("Equation must be like : a * X^nb + b * X^nb + c * X^nb = d * X^nb + e * X^nb + f * X^nb")
 	fmt.Println("The power (nb) must be an int between 0 and 2")
 	fmt.Println("Exemple : '5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0'")

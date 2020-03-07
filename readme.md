@@ -12,4 +12,6 @@ bonus :
 
 a finir :
 
- - (peut etre refaire la function Rationnel)
+ - refaire la function Rationnel
+ - input
+ - sous forme naturelle

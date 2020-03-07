@@ -7,18 +7,21 @@ import (
 	"strings"
 	"Output"
     "agasparo"
-    "os"
+    "input"
 )
 
 func main() {
 
-    args := os.Args[1:]
-    if len(args) != 1 {
+    in := input.Data{}
+    if input.GetInput(&in) == 0 {
         Output.Usage()
         return
     }
 
-    c := args[0]
+    fmt.Println(in)
+
+    return
+    c := ""
 
     fmt.Println("[1/4] Init Check struct ...")
     Check_struct := Init(c)

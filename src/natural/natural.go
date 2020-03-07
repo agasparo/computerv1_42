@@ -33,7 +33,7 @@ func Convert(str string) (string) {
 
 		if i + 3 < len(tab) {
 			new_str += " "
-			new_str += "|"//tab[i + 3]
+			new_str += tab[i + in]
 			new_str += " "
 		}
 

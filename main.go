@@ -21,13 +21,13 @@ func main() {
         return
     }
 
-    if in.Natural == 0 {
+    if in.Natural == 1 {
         c = in.Input
     } else {
         c = natural.Convert(in.Input)
     }
 
-    fmt.Println(in)
+    fmt.Println(c)
     return
 
     fmt.Println("[1/4] Init Check struct ...")

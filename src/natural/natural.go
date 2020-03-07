@@ -2,7 +2,6 @@ package natural
 
 import (
 	"strings"
-	"fmt"
 )
 
 func Convert(str string) (string) {
@@ -45,7 +44,6 @@ func Convert(str string) (string) {
 		} else {
 			i += 3
 		}
-		fmt.Println(new_str)
 	}
 	return (new_str)
 }

@@ -37,11 +37,13 @@ func GetInput(input *Data) (int) {
 
 func ReadSTDIN(input *Data, args []string) {
 
+	tab := make([]string, 1)
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Enter an Equation : ")
 	text, _ := reader.ReadString('\n')
 	input.Input = strings.ReplaceAll(text, "\n", "")
-	input.Natural = is_natural(args)
+	tab[0] = input.Input
+	input.Natural = is_natural(tab)
 }
 
 func is_natural(args []string) (int) {

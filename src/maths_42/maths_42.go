@@ -53,10 +53,11 @@ func Processus(new_nb, deno int64, Ra *Rational) {
 		deno /= pgcd
 	}
 
-	if new_nb > 1000 && deno > 1000 { // a changer
+	if repet(new_nb) > 0 { // a changer
 		if int(Ra.Nb) > 0 {
 			add = int64(Ra.Nb)
 		}
+
 		appro(&new_nb, &deno, add, int64(sauv / 10))
 		for pgcd := gcf(new_nb, deno); pgcd != 1; pgcd = gcf(new_nb, deno) {
 
@@ -75,6 +76,20 @@ func Processus(new_nb, deno int64, Ra *Rational) {
 		Ra.Frac += Ra.Sign
 	}
 	Ra.Frac += fmt.Sprintf("%d/%d", Ra.Num, Ra.Den) 
+}
+
+func repet(num int64) (rep int) {
+
+	compare = num % 10
+
+	for i := 10; num > 0; num / i {
+
+		if num % 10 == compare {
+			rep++
+		}
+	}
+
+	return (rep)
 }
 
 func appro(num *int64, deno *int64, add int64, div int64) {

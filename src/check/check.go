@@ -76,6 +76,12 @@ func SetPuis(input *CheckParam, eqs *CheckPuis, deb int) (re int) {
 							SetErrors(input, "You must have a number before the power", i - 2)
 							return (0)
 						} else {
+							ex := strings.Split(input.Tab_str[i - 2], "/")
+							t2, _ := strconv.ParseFloat(ex[1], 64)
+							if t2 == 0 {
+								SetErrors(input, "no division by 0", i - 2)
+								return (0)
+							}
 							in = 1
 						}
 					}
@@ -116,6 +122,9 @@ func InitPow(s string, sign string, eqs *CheckPuis, pow int) {
 		ex := strings.Split(s, "/")
 		t1, _ := strconv.ParseFloat(ex[0], 64)
 		t2, _ := strconv.ParseFloat(ex[1], 64)
+		if t2 == 0 {
+			return
+		}
 		f = t1 / t2
 	} else {
 		f, _ = strconv.ParseFloat(s, 64)

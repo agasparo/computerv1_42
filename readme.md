@@ -15,4 +15,3 @@ bonus :
 a faire :
 
  - signe quand equation naturel
- - boucle infi quand fraction diviser par 0

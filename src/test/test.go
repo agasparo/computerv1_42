@@ -24,7 +24,7 @@ func main() {
 
 	AddTest(AllTests, "syntax error 1 (double egale)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 == 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 2 (twice = on equation)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * X^1 = 2 * X^1", "Notice", "regex")
-	AddTest(AllTests, "syntax error 3 (L for X)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * L^1", "0.5", "regex")
+	AddTest(AllTests, "syntax error 3 (L for X)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * L^1", "No solution", "regex")
 	AddTest(AllTests, "syntax error 4 (s for ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * Xs0 = 1 * X^1", "0", "regex")
 	AddTest(AllTests, "syntax error 5 (no space)", "/Users/arthur/Desktop/computorv1/main.go", "2*X^1.02=1*X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 6 (power not int)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1.02 = 1 * X^1", "Notice", "regex")

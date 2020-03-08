@@ -2,11 +2,12 @@ package natural
 
 import (
 	"strings"
-	"fmt"
+	"github.com/fatih/color"
 )
 
 func Convert(str string) (string) {
 
+	color.White("[option] Create new string ...")
 	tab := strings.Split(str, " ")
 	new_str := ""
 	var x, in = 0, 0
@@ -42,9 +43,9 @@ func Convert(str string) (string) {
 		}
 
 		i += in
-
-		fmt.Println(new_str)
 	}
+	color.Green("New string : %s", new_str)
+	color.White("done")
 	return (new_str)
 }
 
@@ -60,13 +61,16 @@ func intorx(str string, x *int) (string) {
 func powerof(str string, x int) (string) {
 
 	if x == 1 {
-		if str[0] == 'X' {
+		if str[0] == 'X' && len(str) > 2 {
 			return (string(str[len(str) - 1]))
 		}
-		return ("k")
+		return ("0")
 	}
 	if  str[0] != 'X' {
 		return ("0")
+	}
+	if str[0] == 'X' && len(str) > 2 {
+		return (string(str[len(str) - 1]))
 	}
 	return ("1")
 }

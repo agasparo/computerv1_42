@@ -27,9 +27,9 @@ func main() {
         c = natural.Convert(in.Input)
     }
 
-    fmt.Println("[1/4] Init Check struct ...")
+    color.White("[1/4] Init Check struct ...")
     Check_struct := Init(c)
-    fmt.Println("done")
+    color.White("done")
 
     index := agasparo.Array_search(Check_struct.Tab_str, "=")
     if index < 0 {
@@ -43,7 +43,7 @@ func main() {
         return
     }
 
-    fmt.Println("[2/4] Init Struct eq 1 ...")
+    color.White("[2/4] Init Struct eq 1 ...")
     Eq1 := check.CheckPuis{}
     if check.SetPuis(&Check_struct, &Eq1, 0) == 0 {
     	color.Red("Notice: %s on caractere %d ", Check_struct.Error, Check_struct.Error_value)
@@ -51,8 +51,8 @@ func main() {
     	return 
     }
 
-    fmt.Println("done")
-    fmt.Println("[3/4] Init Struct eq 2 ...")
+    color.White("done")
+    color.White("[3/4] Init Struct eq 2 ...")
     Eq2 := check.CheckPuis{}
     if check.SetPuis(&Check_struct, &Eq2, index + 1) == 0 {
     	color.Red("Notice: %s on caractere %d ", Check_struct.Error, Check_struct.Error_value)
@@ -60,8 +60,8 @@ func main() {
     	return 
     }
 
-    fmt.Println("done")
-    fmt.Println("[4/4] Calculating final Struct ...")
+    color.White("done")
+    color.White("[4/4] Calculating final Struct ...")
     EqF := agasparo.Equation{
         Eq1.Puis0 + agasparo.Inverse(Eq2.Puis0),
         Eq1.Puis1 + agasparo.Inverse(Eq2.Puis1),

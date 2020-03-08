@@ -113,7 +113,7 @@ func DeltaSup(Eq Equation, delta float64) {
 		} else {
 			fmt.Println("")
 		}
-		fmt.Printf("	x2 = %f ou x2 = ", fin_x2)
+		fmt.Printf("	x2 = %f ", fin_x2)
 		Rationalx2 := maths_42.Rational{fin_x2, 0, 0, "", 3, ""}
 		maths_42.Trasnform(&Rationalx2)
 		if len(Rationalx2.Frac) > 0 {

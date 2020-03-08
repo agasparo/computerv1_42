@@ -2,6 +2,7 @@ package natural
 
 import (
 	"strings"
+	"fmt"
 )
 
 func Convert(str string) (string) {
@@ -41,6 +42,8 @@ func Convert(str string) (string) {
 		}
 
 		i += in
+
+		fmt.Println(new_str)
 	}
 	return (new_str)
 }

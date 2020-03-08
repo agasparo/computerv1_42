@@ -43,10 +43,31 @@ func Trasnform(Ra *Rational) {
 
 func Processus(new_nb, deno int64, Ra *Rational) {
 	
+	var add int64 = 0
+
+	sauv := deno
+
 	for pgcd := gcf(new_nb, deno); pgcd != 1; pgcd = gcf(new_nb, deno) {
 
 		new_nb /= pgcd
 		deno /= pgcd
+	}
+
+	if new_nb > 1000 && deno > 1000 { // a changer
+		if int(Ra.Nb) > 0 {
+			add = int64(Ra.Nb)
+		}
+		appro(&new_nb, &deno, add, int64(sauv / 10))
+		for pgcd := gcf(new_nb, deno); pgcd != 1; pgcd = gcf(new_nb, deno) {
+
+			new_nb /= pgcd
+			deno /= pgcd
+		}
+
+		if add > 0 {
+			mu := add * deno
+			new_nb += mu
+		}
 	}
 	Ra.Num = new_nb
 	Ra.Den = deno
@@ -54,6 +75,19 @@ func Processus(new_nb, deno int64, Ra *Rational) {
 		Ra.Frac += Ra.Sign
 	}
 	Ra.Frac += fmt.Sprintf("%d/%d", Ra.Num, Ra.Den) 
+}
+
+func appro(num *int64, deno *int64, add int64, div int64) {
+
+	mul := *num % 10
+	if add > 0 {
+		suppr := (*num / div)
+		*num = *num - (suppr * div)
+		*num *= 10
+		*num += mul
+	}
+	*num = *num * mul + 1
+	*deno *= mul
 }
 
 func gcf(a, b int64) int64 {

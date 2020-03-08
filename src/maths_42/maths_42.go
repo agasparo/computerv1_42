@@ -80,9 +80,10 @@ func Processus(new_nb, deno int64, Ra *Rational) {
 
 func repet(num int64) (rep int) {
 
-	compare = num % 10
+	var i int64 = 0
+	compare := num % 10
 
-	for i := 10; num > 0; num / i {
+	for i = 10; num > 0; num = num / i {
 
 		if num % 10 == compare {
 			rep++

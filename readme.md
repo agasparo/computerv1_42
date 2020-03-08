@@ -13,5 +13,3 @@ bonus :
  - sous forme naturelle
 
 a faire :
-
- - signe quand equation naturel

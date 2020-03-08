@@ -35,6 +35,10 @@ func PrintNewEquation(p2 float64, p1 float64, p0 float64) {
 	if (p0 != 0) {
 		fmt.Printf("%f * X^0", p0)
 	}
+
+	if p0 == 0 && p1 == 0 && p2 == 0 {
+		fmt.Print("0")
+	}
 	fmt.Println(" = 0")
 	color.Unset()
 }

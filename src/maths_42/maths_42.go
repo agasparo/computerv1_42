@@ -53,7 +53,7 @@ func Processus(new_nb, deno int64, Ra *Rational) {
 		deno /= pgcd
 	}
 
-	if repet(new_nb) > 0 { // a changer
+	if repet(new_nb) > 1 {
 		if int(Ra.Nb) > 0 {
 			add = int64(Ra.Nb)
 		}

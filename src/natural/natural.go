@@ -64,7 +64,7 @@ func powerof(str string, x int) (string) {
 		if str[0] == 'X' && len(str) > 2 {
 			return (string(str[len(str) - 1]))
 		}
-		return ("0")
+		return ("1")
 	}
 	if  str[0] != 'X' {
 		return ("0")

@@ -24,14 +24,14 @@ func main() {
 
 	AddTest(AllTests, "syntax error 1 (double egale)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 == 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 2 (twice = on equation)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * X^1 = 2 * X^1", "Notice", "regex")
-	AddTest(AllTests, "syntax error 3 (L for X)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * L^1", "Notice", "regex")
-	AddTest(AllTests, "syntax error 4 (s for ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * Xs0 = 1 * X^1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 3 (L for X)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^0 = 1 * L^1", "0.5", "regex")
+	AddTest(AllTests, "syntax error 4 (s for ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * Xs0 = 1 * X^1", "0", "regex")
 	AddTest(AllTests, "syntax error 5 (no space)", "/Users/arthur/Desktop/computorv1/main.go", "2*X^1.02=1*X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 6 (power not int)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1.02 = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 7 (power alpha)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^a = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 8 (terme alpha)", "/Users/arthur/Desktop/computorv1/main.go", "a * X^1 = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 9 (+ for *)", "/Users/arthur/Desktop/computorv1/main.go", "2 + X^1 = 1 * X^1", "No solution", "regex")
-	AddTest(AllTests, "syntax error 10 (no ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X1 = 1 * X1", "Notice", "regex")
+	AddTest(AllTests, "syntax error 10 (no ^)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X1 = 1 * X1", "0", "regex")
 	AddTest(AllTests, "syntax error 11 (power > 2)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^3 = 1 * X^1", "Notice", "regex")
 	AddTest(AllTests, "syntax error 12 (power < 0)", "/Users/arthur/Desktop/computorv1/main.go", "2 * X^1 = 1 * X^-1", "Notice", "regex")
 

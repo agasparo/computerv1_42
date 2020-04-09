@@ -52,7 +52,8 @@ func Delta(Eq Equation) {
 	color.Green("Δ = %f", delta)
 
 	if delta < 0 {
-		color.Green("Δ < 0, No solutions for this equation")
+		color.Green("Δ < 0, 2 solutions : x1 = (- b + i√-Δ) / 2a and x2 = (- b - i√-Δ) / 2a")
+		Deltainf(Eq, delta)
 		return
 	}
 
@@ -87,6 +88,22 @@ func DeltaNil(Eq Equation, delta float64) {
 		} else {
 			fmt.Println("")
 		}
+	color.Unset()
+}
+
+func Deltainf(Eq Equation, delta float64) {
+
+	fmt.Println("Etape 2 :")
+	fmt.Printf("x1 = (- %f + i√%f) / 2 * %f and x2 = (- %f - i√%f) / 2 * %f\n", Eq.Puis1, Inverse(delta), Eq.Puis2, Eq.Puis1, Inverse(delta), Eq.Puis2)
+	deb := (Eq.Puis1 * -1)
+	fin := (Eq.Puis2 * 2)
+	fmt.Printf("x1 = (%f + i√%f) / %f and x2 = (%f - i√%f) / %f\n", deb, Inverse(delta), fin, deb, Inverse(delta), fin)
+	color.Set(color.FgGreen)
+	fmt.Println("Solutions : ")
+	Rationalx1 := fmt.Sprintf("\tx1 = (%f + i√%f) / %f", deb, Inverse(delta), fin)
+	fmt.Println(Rationalx1)
+	Rationalx2 := fmt.Sprintf("\tx2 = (%f - i√%f) / %f", deb, Inverse(delta), fin)
+	fmt.Println(Rationalx2)
 	color.Unset()
 }
 

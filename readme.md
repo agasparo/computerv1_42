@@ -12,4 +12,6 @@ bonus :
  - stdin data
  - sous forme naturelle
 
-a faire :
+Installer go sur sa vm :
+
+ - apt install golang

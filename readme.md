@@ -16,3 +16,4 @@ Installer go sur sa vm :
 
  - apt install golang
  - export GOPATH=$HOME/[...]/computerv1
+ - go get github.com/fatih/color

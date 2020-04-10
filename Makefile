@@ -1,7 +1,14 @@
-computer:
+include .env
+
+init:
 	go get github.com/fatih/color
-	go build
+	go build -o $(PROJECTNAME)
 
-all: computer
+clean: 
+	rm $(PROJECTNAME)
 
-clean: rm -rf computerv1
+test:
+	go get github.com/fatih/color
+	go run src/test/test.go
+
+all: init

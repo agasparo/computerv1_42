@@ -15,4 +15,3 @@ bonus :
 Installer go sur sa vm :
 
  - apt install golang
- - export GOPATH=$HOME/[...]/computerv1

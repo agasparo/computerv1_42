@@ -15,3 +15,5 @@ bonus :
 Installer go sur sa vm :
 
  - apt install golang
+ - export GOPATH="chemin vers le dossier"
+ - changer GOPATH dans le .env par : "chemin vers le dossier"

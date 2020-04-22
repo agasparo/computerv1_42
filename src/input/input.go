@@ -48,7 +48,11 @@ func ReadSTDIN(input *Data, args []string) {
 
 func is_natural(args []string) (int) {
 
-	tab := strings.Split(args[0], " ")
+	tab := strings.Split(strings.Trim(args[0], " "), " ")
+
+	if len(tab) == 1 {
+		return (0)
+	}
 
 	for i := 0; i < len(tab); i++ {
 
